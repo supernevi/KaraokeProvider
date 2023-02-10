@@ -91,6 +91,10 @@ public class SongServiceImpl implements SongService {
 	
 
 	private Path getAbsoluteFilePath(BOSongInfo songInfo, KaraokeMediaType mediaType) {
+		if(mediaType == null) {
+			return null;
+		}
+		
 		String filePathString = switch(mediaType) {
 			case VIDEO -> songInfo.getVideoFileName();
 			case AUDIO -> songInfo.getAudioFileName();
