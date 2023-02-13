@@ -1,6 +1,8 @@
 package com.github.supernevi.KaraokeProvider.rest;
 
 import java.io.IOException;
+import java.net.FileNameMap;
+import java.net.URLConnection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -59,6 +61,8 @@ public class SongRestControllerImpl implements SongRestController {
 					.build();
 		}
 		
+		FileNameMap fileNameMap = URLConnection.getFileNameMap();
+		String mimeType = fileNameMap.getContentTypeFor(fileInfo.getFileName());
 		
 		long rangeStart = 0;
 		long rangeEnd;
@@ -68,7 +72,7 @@ public class SongRestControllerImpl implements SongRestController {
 			if (range == null) {
 				return ResponseEntity
 						.status(HttpStatus.OK)
-						.header("Content-Type", contentTypePrefix.getHttpContentType() + "/" + fileInfo.getFileType())
+						.header("Content-Type", mimeType)
 						.header("Content-Length", String.valueOf(fileSize))
 						.body(songService.readByteRange(fileInfo, rangeStart, fileSize - 1));
 			}
@@ -89,7 +93,7 @@ public class SongRestControllerImpl implements SongRestController {
 		}
 		String contentLength = String.valueOf((rangeEnd - rangeStart) + 1);
 		return ResponseEntity.status(HttpStatus.PARTIAL_CONTENT)
-				.header("Content-Type", contentTypePrefix.getHttpContentType() + "/" + fileInfo.getFileType())
+				.header("Content-Type", mimeType)
 				.header("Accept-Ranges", "bytes")
 				.header("Content-Length", contentLength)
 				.header("Content-Range", "bytes" + " " + rangeStart + "-" + rangeEnd + "/" + fileSize).body(data);
