@@ -6,10 +6,10 @@ import org.junit.platform.suite.api.Suite;
 //@formatter:off
 @Suite
 @SelectClasses({
-	AllDaoTests.class,
-	AllServiceTests.class
+	AllDaoTestsSuite.class,
+	AllServiceTestsSuite.class
 })
 //@formatter:on
-public class AllTests {
+public class AllTestSuites {
 
 }

@@ -11,6 +11,6 @@ import com.github.supernevi.KaraokeProvider.dao.SongDaoTest;
 	SongDaoTest.class
 })
 //@formatter:on
-public class AllDaoTests {
+public class AllDaoTestsSuite {
 
 }

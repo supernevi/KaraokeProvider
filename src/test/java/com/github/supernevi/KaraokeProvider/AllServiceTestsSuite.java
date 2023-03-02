@@ -13,6 +13,6 @@ import com.github.supernevi.KaraokeProvider.utilities.RuntimeParameterUtilitiesT
 	RuntimeParameterUtilitiesTest.class
 })
 //@formatter:on
-public class AllServiceTests {
+public class AllServiceTestsSuite {
 
 }
