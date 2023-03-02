@@ -26,9 +26,11 @@ public class SongDaoImpl implements SongDao {
 
 	@Override
 	public void saveSongInfo(BOSongInfo songInfo) {
-		String id = generateId(songInfo);
-		songInfo.setFileId(id);
-		store.put(id, songInfo);
+		if(songInfo != null) {
+			String id = generateId(songInfo);
+			songInfo.setFileId(id);
+			store.put(id, songInfo);
+		}
 	}
 	
 	private String generateId(BOSongInfo songInfo) {
