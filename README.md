@@ -1,5 +1,7 @@
 [![Build Status](https://github.com/supernevi/KaraokeProvider/actions/workflows/maven.yml/badge.svg)](https://github.com/supernevi/KaraokeProvider/actions/workflows/maven.yml)
+<!---
 [![coverage](https://github.com/supernevi/KaraokeProvider/blob/main/.github/badges/jacoco.svg)](https://github.com/supernevi/KaraokeProvider/actions/workflows/maven.yml)
+-->
 
 # KaraokeProvider
 KaraokeProvider is a free and open source java based server to provide audio, video files and lyrics, cover and background images for your karaoke machine. This project was created based on [UltraStar Play](https://usplay.net/), but basically you can host your files for what you ever want.
