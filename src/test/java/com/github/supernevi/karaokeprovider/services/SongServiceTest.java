@@ -24,8 +24,6 @@ import com.github.supernevi.karaokeprovider.entities.BOSongInfo;
 import com.github.supernevi.karaokeprovider.entities.internal.MediaFileInfo;
 import com.github.supernevi.karaokeprovider.entities.transfer.TOSongInfo;
 import com.github.supernevi.karaokeprovider.enums.KaraokeMediaType;
-import com.github.supernevi.karaokeprovider.services.SongService;
-import com.github.supernevi.karaokeprovider.services.SongServiceImpl;
 
 public class SongServiceTest {
 	

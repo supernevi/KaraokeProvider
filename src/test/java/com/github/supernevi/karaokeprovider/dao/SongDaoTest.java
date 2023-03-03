@@ -10,8 +10,6 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
-import com.github.supernevi.karaokeprovider.dao.SongDao;
-import com.github.supernevi.karaokeprovider.dao.SongDaoImpl;
 import com.github.supernevi.karaokeprovider.entities.BOSongInfo;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
