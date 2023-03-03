@@ -14,10 +14,12 @@ import com.github.supernevi.karaokeprovider.entities.transfer.TOSongInfo;
 import com.github.supernevi.karaokeprovider.enums.KaraokeMediaType;
 import com.github.supernevi.karaokeprovider.services.SongService;
 
+import lombok.extern.log4j.Log4j2;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
+@Log4j2
 public class SongRestControllerImpl implements SongRestController {
 
 	@Autowired
@@ -88,7 +90,7 @@ public class SongRestControllerImpl implements SongRestController {
 			}
 			data = songService.readByteRange(fileInfo, rangeStart, rangeEnd);
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.error("an error occured while getting content of '" + fileName + "'", e);
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
 		String contentLength = String.valueOf((rangeEnd - rangeStart) + 1);
