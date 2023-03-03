@@ -64,7 +64,7 @@ public class SongServiceImpl implements SongService {
 		MediaFileInfo fileInfo = new MediaFileInfo();
 
 		String fileName = absolutePath.getFileName().toString();
-		String fileType = fileName.substring(fileName.lastIndexOf(".") + 1);
+		String fileType = fileName.substring(fileName.lastIndexOf('.') + 1);
 		
 		fileInfo.setFileSize(sizeFromFile(absolutePath));
 		fileInfo.setFileName(fileName);
