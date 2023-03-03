@@ -15,7 +15,7 @@ import com.github.supernevi.karaokeprovider.entities.BOSongInfo;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 public class SongDaoTest {
 	
-	private SongDao songDao = new SongDaoImpl();
+	private final SongDao songDao = new SongDaoImpl();
 	
 	private static String lastSavedId;
 	

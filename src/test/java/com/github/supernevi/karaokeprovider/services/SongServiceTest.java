@@ -31,7 +31,7 @@ public class SongServiceTest {
 	private SongDao songDao;
 	
 	@InjectMocks
-	private SongService songervice = new SongServiceImpl();
+	private final SongService songervice = new SongServiceImpl();
 	
 	@BeforeEach
 	public void install() {
