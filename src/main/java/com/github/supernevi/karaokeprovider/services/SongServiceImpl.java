@@ -21,8 +21,10 @@ import com.github.supernevi.karaokeprovider.enums.KaraokeMediaType;
 import com.github.supernevi.karaokeprovider.utilities.RuntimeParameterUtilities;
 
 import io.micrometer.common.util.StringUtils;
+import lombok.extern.log4j.Log4j2;
 
 @Service
+@Log4j2
 public class SongServiceImpl implements SongService {
 	
 	public static final int BYTE_RANGE = 128; // increase the byterange from here
@@ -74,6 +76,11 @@ public class SongServiceImpl implements SongService {
 
 	@Override
 	public byte[] readByteRange(MediaFileInfo fileInfo, long start, long end) throws IOException {
+		if(start > Integer.MAX_VALUE || end > Integer.MAX_VALUE) {
+			log.error("Only files lower than 2GB are supported: {}", fileInfo); // because array index can only be in integer value...
+			return new byte[0];
+		}
+		
 		Path path = Paths.get(fileInfo.getAbsolutePath());
 		try (InputStream inputStream = (Files.newInputStream(path));
 				ByteArrayOutputStream bufferedOutputStream = new ByteArrayOutputStream()) {
@@ -83,8 +90,8 @@ public class SongServiceImpl implements SongService {
 				bufferedOutputStream.write(data, 0, nRead);
 			}
 			bufferedOutputStream.flush();
-			byte[] result = new byte[(int) (end - start) + 1];
-			System.arraycopy(bufferedOutputStream.toByteArray(), (int) start, result, 0, result.length);
+			byte[] result = new byte[(int)(end - start) + 1];
+			System.arraycopy(bufferedOutputStream.toByteArray(), (int)start, result, 0, result.length);
 			return result;
 		}
 	}
@@ -111,13 +118,13 @@ public class SongServiceImpl implements SongService {
 		return Paths.get(baseSongDir, songInfo.getRelativePath(), filePathString);
 	}
 
-	private Long sizeFromFile(Path path) {
+	private long sizeFromFile(Path path) {
 		try {
 			return Files.size(path);
 		} catch (IOException ex) {
-			ex.printStackTrace();
+			log.error("error while ");
 		}
-		return 0L;
+		return 0;
 	}
 	
 	private TOSongInfo convertToTOSongInfo(BOSongInfo source) {
