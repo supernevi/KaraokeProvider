@@ -20,7 +20,7 @@ public class SongDaoTest {
 	private static String lastSavedId;
 	
 	@Test
-	public void testA01GetAllSongs_beforeInsert__empty() {
+	void testA01GetAllSongs_beforeInsert__empty() {
 		Collection<BOSongInfo> resultList = songDao.getAllSongs();
 		assertNotNull(resultList);
 		
@@ -28,14 +28,14 @@ public class SongDaoTest {
 	}
 	
 	@Test
-	public void testB01SaveSongInfo_null() {
+	void testB01SaveSongInfo_null() {
 		BOSongInfo entity = null;
 		songDao.saveSongInfo(entity);
 		assertEquals(null, entity);
 	}
 	
 	@Test
-	public void testB02SaveSongInfo_empty() {
+	void testB02SaveSongInfo_empty() {
 		BOSongInfo entity = new BOSongInfo();
 		songDao.saveSongInfo(entity);
 		assertNotNull(entity);
@@ -45,25 +45,25 @@ public class SongDaoTest {
 	}
 	
 	@Test
-	public void testC01GetSongInfo_null__null() {
+	void testC01GetSongInfo_null__null() {
 		BOSongInfo result = songDao.getSongInfo(null);
 		assertNull(result);
 	}
 	
 	@Test
-	public void testC02GetSongInfo_empty__null() {
+	void testC02GetSongInfo_empty__null() {
 		BOSongInfo result = songDao.getSongInfo("");
 		assertNull(result);
 	}
 	
 	@Test
-	public void testC03GetSongInfo_IDoNotExist__null() {
+	void testC03GetSongInfo_IDoNotExist__null() {
 		BOSongInfo result = songDao.getSongInfo("IDoNotExist");
 		assertNull(result);
 	}
 	
 	@Test
-	public void testC03GetSongInfo_existingId__filledObject() {
+	void testC03GetSongInfo_existingId__filledObject() {
 		BOSongInfo result = songDao.getSongInfo(lastSavedId);
 		assertNotNull(result);
 		assertEquals(lastSavedId, result.getFileId());

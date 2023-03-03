@@ -53,7 +53,7 @@ public class SongServiceTest {
 	}
 	
 	@Test
-	public void testGetAllSongInfos() {
+	void testGetAllSongInfos() {
 		List<TOSongInfo> resultList = songervice.getAllSongInfos();
 		assertNotNull(resultList);
 		assertEquals(2, resultList.size());
@@ -70,31 +70,31 @@ public class SongServiceTest {
 	}
 	
 	@Test
-	public void testGetMediaFile_null_null__null() {
+	void testGetMediaFile_null_null__null() {
 		MediaFileInfo result = songervice.getMediaFileInfo(null, null);
 		assertNull(result);
 	}
 	
 	@Test
-	public void testGetMediaFile_empty_null__null() {
+	void testGetMediaFile_empty_null__null() {
 		MediaFileInfo result = songervice.getMediaFileInfo("", null);
 		assertNull(result);
 	}
 	
 	@Test
-	public void testGetMediaFile_1337_null__null() {
+	void testGetMediaFile_1337_null__null() {
 		MediaFileInfo result = songervice.getMediaFileInfo("1337", null);
 		assertNull(result);
 	}
 	
 	@Test
-	public void testGetMediaFile_1_null__null() {
+	void testGetMediaFile_1_null__null() {
 		MediaFileInfo result = songervice.getMediaFileInfo("1", null);
 		assertNull(result);
 	}
 	
 	@Test
-	public void testGetMediaFile_1_TEXT__null() {
+	void testGetMediaFile_1_TEXT__null() {
 		MediaFileInfo result = songervice.getMediaFileInfo("1", KaraokeMediaType.TEXT);
 		assertNull(result);
 	}
