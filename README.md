@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cacc8d28678749b680b19bbc76375ed3)](https://app.codacy.com/gh/supernevi/KaraokeProvider?utm_source=github.com&utm_medium=referral&utm_content=supernevi/KaraokeProvider&utm_campaign=Badge_Grade_Settings)
 [![Build Status](https://github.com/supernevi/KaraokeProvider/actions/workflows/maven.yml/badge.svg)](https://github.com/supernevi/KaraokeProvider/actions/workflows/maven.yml)
 <!---
 [![coverage](https://github.com/supernevi/KaraokeProvider/blob/main/.github/badges/jacoco.svg)](https://github.com/supernevi/KaraokeProvider/actions/workflows/maven.yml)
