@@ -21,5 +21,8 @@ The server starts scanning all your files in that directory for UltraStar based 
 ### REST API
 Providing happens via REST. More information coming soon.
 
+### Limitations
+1. maximum file size for streaming is 2GB (due to technical reasons)
+
 ## Contributing
 I'm grateful for any contribution. So don't resitate to create or implement issues.
