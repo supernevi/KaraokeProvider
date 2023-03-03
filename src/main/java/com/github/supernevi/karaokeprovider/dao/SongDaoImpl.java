@@ -27,13 +27,13 @@ public class SongDaoImpl implements SongDao {
 	@Override
 	public void saveSongInfo(BOSongInfo songInfo) {
 		if(songInfo != null) {
-			String id = generateId(songInfo);
+			String id = generateId();
 			songInfo.setFileId(id);
 			store.put(id, songInfo);
 		}
 	}
 	
-	private String generateId(BOSongInfo songInfo) {
+	private String generateId() {
 		UUID uniqueKey = UUID.randomUUID();
 		return uniqueKey.toString();
 	}
