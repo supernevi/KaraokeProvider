@@ -1,4 +1,4 @@
-package com.github.supernevi.karaokeprovider.dao;
+package com.github.supernevi.karaokeprovider.daos;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

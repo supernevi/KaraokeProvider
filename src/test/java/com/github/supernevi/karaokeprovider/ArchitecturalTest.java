@@ -44,7 +44,7 @@ public class ArchitecturalTest {
 	@ArchTest
 	private final ArchRule daoNaming = classes().that().areAnnotatedWith(Repository.class)
 		.should().haveSimpleNameEndingWith("DaoImpl")
-		.andShould().resideInAnyPackage("..dao")
+		.andShould().resideInAnyPackage("..daos")
 		.andShould(haveNoMemberVariablesButLogger());
 
 	@ArchTest
@@ -72,7 +72,7 @@ public class ArchitecturalTest {
 		.consideringAllDependencies()
 		.layer("API").definedBy("..rest..")
 		.layer("Service").definedBy("..services..")
-		.layer("Persistence").definedBy("..dao..")
+		.layer("Persistence").definedBy("..daos..")
 		.whereLayer("API").mayNotBeAccessedByAnyLayer();
 	
 
