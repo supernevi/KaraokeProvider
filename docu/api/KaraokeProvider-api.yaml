@@ -1,0 +1,158 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /songs:
+    get:
+      tags:
+      - song-rest-controller-impl
+      operationId: getAllSongs
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TOSongInfo'
+  /songs/{fileId}/video:
+    get:
+      tags:
+      - song-rest-controller-impl
+      operationId: streamVideo
+      parameters:
+      - name: Range
+        in: header
+        required: false
+        schema:
+          type: string
+      - name: fileId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            video/*:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: byte
+  /songs/{fileId}/text:
+    get:
+      tags:
+      - song-rest-controller-impl
+      operationId: getSong
+      parameters:
+      - name: fileId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: byte
+  /songs/{fileId}/cover:
+    get:
+      tags:
+      - song-rest-controller-impl
+      operationId: getCover
+      parameters:
+      - name: fileId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            image/*:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: byte
+  /songs/{fileId}/background:
+    get:
+      tags:
+      - song-rest-controller-impl
+      operationId: getBackGround
+      parameters:
+      - name: fileId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            image/*:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: byte
+  /songs/{fileId}/audio:
+    get:
+      tags:
+      - song-rest-controller-impl
+      operationId: streamAudio
+      parameters:
+      - name: Range
+        in: header
+        required: false
+        schema:
+          type: string
+      - name: fileId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            audio/*:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: byte
+components:
+  schemas:
+    TOSongInfo:
+      type: object
+      properties:
+        songId:
+          type: string
+        artist:
+          type: string
+        title:
+          type: string
+        textLink:
+          type: string
+        audioLink:
+          type: string
+        videoLink:
+          type: string
+        coverLink:
+          type: string
+        backgroundLink:
+          type: string
