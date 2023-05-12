@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.github.supernevi.karaokeprovider.dao.SongDao;
+import com.github.supernevi.karaokeprovider.daos.SongDao;
 import com.github.supernevi.karaokeprovider.entities.BOSongInfo;
 import com.github.supernevi.karaokeprovider.utilities.RuntimeParameterUtilities;
 

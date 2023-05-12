@@ -19,7 +19,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
-import com.github.supernevi.karaokeprovider.dao.SongDao;
+import com.github.supernevi.karaokeprovider.daos.SongDao;
 import com.github.supernevi.karaokeprovider.entities.BOSongInfo;
 import com.github.supernevi.karaokeprovider.entities.internal.MediaFileInfo;
 import com.github.supernevi.karaokeprovider.entities.transfer.TOSongInfo;
