@@ -19,7 +19,7 @@ Start your tomcat with following runtime start parameter `-DsongStorePath=<absol
 The server starts scanning all your files in that directory for UltraStar based text files and then provides this text file and all accociated media files (audio, video, cover, background) as far as they are configured and exists.
 
 ### REST API
-Providing happens via REST. Current specifications can be found [![here]](https://github.com/supernevi/KaraokeProvider/docu/api/KaraokeProvider-api.yaml)
+Providing happens via REST. Current specifications can be found [here](https://github.com/supernevi/KaraokeProvider/docu/api/KaraokeProvider-api.yaml)
 
 ### Limitations
 1. maximum file size for streaming is 2GB (due to technical reasons)
