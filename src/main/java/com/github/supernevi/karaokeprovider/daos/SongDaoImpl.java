@@ -1,4 +1,4 @@
-package com.github.supernevi.karaokeprovider.dao;
+package com.github.supernevi.karaokeprovider.daos;
 
 import java.util.Collection;
 import java.util.HashMap;

@@ -3,7 +3,7 @@ package com.github.supernevi.karaokeprovider;
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 
-import com.github.supernevi.karaokeprovider.dao.SongDaoTest;
+import com.github.supernevi.karaokeprovider.daos.SongDaoTest;
 
 //@formatter:off
 @Suite

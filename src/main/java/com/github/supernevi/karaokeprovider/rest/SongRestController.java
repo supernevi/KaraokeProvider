@@ -14,24 +14,24 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/songs")
 public interface SongRestController {
 	
-	@GetMapping
+	@GetMapping(produces = "application/json")
 	public Flux<TOSongInfo> getAllSongs();
 	
-	@GetMapping(value = "/{fileId}/text")
+	@GetMapping(value = "/{fileId}/text", produces = "text/plain")
 	public ResponseEntity<byte[]> getSong(@PathVariable("fileId") String fileId);
 	
-	@GetMapping(value = "/{fileId}/cover")
+	@GetMapping(value = "/{fileId}/cover", produces = "image/*")
 	public ResponseEntity<byte[]> getCover(@PathVariable("fileId") String fileId);
 	
-	@GetMapping(value = "/{fileId}/background")
+	@GetMapping(value = "/{fileId}/background", produces = "image/*")
 	public ResponseEntity<byte[]> getBackGround(@PathVariable("fileId") String fileId);
 	
-	@GetMapping("/{fileId}/video")
+	@GetMapping(value = "/{fileId}/video", produces = "video/*")
 	public Mono<ResponseEntity<byte[]>> streamVideo(
 			@RequestHeader(value = "Range", required = false) String httpRangeList,
 			@PathVariable("fileId") String fileId);
 	
-	@GetMapping("/{fileId}/audio")
+	@GetMapping(value = "/{fileId}/audio", produces = "audio/*")
 	public Mono<ResponseEntity<byte[]>> streamAudio(
 			@RequestHeader(value = "Range", required = false) String httpRangeList,
 			@PathVariable("fileId") String fileId);

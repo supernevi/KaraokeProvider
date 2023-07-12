@@ -6,6 +6,7 @@ import org.junit.platform.suite.api.Suite;
 //@formatter:off
 @Suite
 @SelectClasses({
+	ArchitecturalTest.class,
 	AllDaoTestsSuite.class,
 	AllServiceTestsSuite.class
 })
