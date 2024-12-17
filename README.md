@@ -15,8 +15,13 @@ As long as no releases are present you have to checkout this project and build i
 The output is a war-file in your target folder that can be used in your tomcat server.
 
 ### Starting the tomcat server
+
+#### Set songs directory ####
 Start your tomcat with following runtime start parameter `-DsongStorePath=<absolutePathToYourSongFolder>`
 The server starts scanning all your files in that directory for UltraStar based text files and then provides this text file and all accociated media files (audio, video, cover, background) as far as they are configured and exists.
+
+#### Set server credentials ####
+This server is secured by basic authentication which can be configured by the runtime parameters `-Dspring.security.user.name=<username>` and `-Dspring.security.user.password=<password>`
 
 ### REST API
 Providing happens via REST. Current specifications can be found [here](docu/api/KaraokeProvider-api.yaml)
