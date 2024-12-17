@@ -1,22 +1,19 @@
 package com.github.supernevi.karaokeprovider.rest;
 
-import java.io.IOException;
-import java.net.FileNameMap;
-import java.net.URLConnection;
-
+import com.github.supernevi.karaokeprovider.entities.internal.MediaFileInfo;
+import com.github.supernevi.karaokeprovider.entities.transfer.TOSongInfo;
+import com.github.supernevi.karaokeprovider.enums.KaraokeMediaType;
+import com.github.supernevi.karaokeprovider.services.SongService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.supernevi.karaokeprovider.entities.internal.MediaFileInfo;
-import com.github.supernevi.karaokeprovider.entities.transfer.TOSongInfo;
-import com.github.supernevi.karaokeprovider.enums.KaraokeMediaType;
-import com.github.supernevi.karaokeprovider.services.SongService;
-
-import lombok.extern.log4j.Log4j2;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
+import java.io.IOException;
+import java.net.FileNameMap;
+import java.net.URLConnection;
+import java.util.Collection;
 
 @RestController
 @Log4j2
@@ -26,8 +23,8 @@ public class SongRestControllerImpl implements SongRestController {
 	private SongService songService;
 
 	@Override
-	public Flux<TOSongInfo> getAllSongs() {
-		return Flux.fromIterable(songService.getAllSongInfos());
+	public Collection<TOSongInfo> getAllSongs() {
+		return songService.getAllSongInfos();
 	}
 	
 	@Override
@@ -46,13 +43,13 @@ public class SongRestControllerImpl implements SongRestController {
 	}
 
 	@Override
-	public Mono<ResponseEntity<byte[]>> streamVideo(String httpRangeList, String fileId) {
-		return Mono.just(getContent(fileId, httpRangeList, KaraokeMediaType.VIDEO));
+	public ResponseEntity<byte[]> streamVideo(String httpRangeList, String fileId) {
+		return getContent(fileId, httpRangeList, KaraokeMediaType.VIDEO);
 	}
 
 	@Override
-	public Mono<ResponseEntity<byte[]>> streamAudio(String httpRangeList, String fileId) {
-		return Mono.just(getContent(fileId, httpRangeList, KaraokeMediaType.AUDIO));
+	public ResponseEntity<byte[]> streamAudio(String httpRangeList, String fileId) {
+		return getContent(fileId, httpRangeList, KaraokeMediaType.AUDIO);
 	}
 
 	private ResponseEntity<byte[]> getContent(String fileName, String range, KaraokeMediaType contentTypePrefix) {
